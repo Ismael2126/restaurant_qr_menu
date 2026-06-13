@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuditLogController;
 use App\Http\Controllers\Admin\MenuAdminController;
 use App\Http\Controllers\Admin\OrderAdminController;
+use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\PublicMenuController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/data', [OrderAdminController::class, 'data'])->name('data');
         Route::get('/{order}/ticket', [OrderAdminController::class, 'ticket'])->name('ticket');
         Route::post('/{order}/status', [OrderAdminController::class, 'updateStatus'])->name('status');
+    });
+
+    Route::prefix('admin/users')->name('admin.users.')->group(function () {
+        Route::get('/', [UserAdminController::class, 'index'])->name('index');
+        Route::post('/', [UserAdminController::class, 'store'])->name('store');
+        Route::get('/{user}/edit', [UserAdminController::class, 'edit'])->name('edit');
+        Route::put('/{user}', [UserAdminController::class, 'update'])->name('update');
+        Route::delete('/{user}', [UserAdminController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('/admin/audit-logs', [AuditLogController::class, 'index'])->name('admin.audit.index');

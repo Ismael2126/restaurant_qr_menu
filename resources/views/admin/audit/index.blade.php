@@ -19,6 +19,7 @@
         <div class="header-actions">
             <a href="{{ route('admin.menu.index') }}" class="btn btn-secondary">Menu Admin</a>
             <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">Orders</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Staff</a>
 
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -38,6 +39,7 @@
                 <option value="Menu Item" {{ request('module') === 'Menu Item' ? 'selected' : '' }}>Menu Item</option>
                 <option value="Table" {{ request('module') === 'Table' ? 'selected' : '' }}>Table</option>
                 <option value="Order" {{ request('module') === 'Order' ? 'selected' : '' }}>Order</option>
+                <option value="User" {{ request('module') === 'User' ? 'selected' : '' }}>User</option>
             </select>
 
             <select name="action">

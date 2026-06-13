@@ -20,6 +20,7 @@
         <div class="header-actions">
             <a href="{{ route('admin.menu.index') }}" class="btn btn-secondary">Menu Admin</a>
             <a href="{{ route('admin.audit.index') }}" class="btn btn-secondary">Audit Logs</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Staff</a>
 
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

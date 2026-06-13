@@ -19,6 +19,7 @@
     <div class="header-actions">
         <a href="{{ route('admin.orders.index') }}" class="btn btn-green">Orders</a>
         <a href="{{ route('admin.audit.index') }}" class="btn btn-blue">Audit Logs</a>
+        <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Staff</a>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
