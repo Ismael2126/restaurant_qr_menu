@@ -22,11 +22,14 @@ class UserAdminController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:150|unique:users,email',
-            'password' => 'required|string|min:8',
             'role' => 'required|in:' . implode(',', array_keys(User::ROLES)),
         ]);
 
-        $user = User::create($validated);
+        $user = User::create([
+            ...$validated,
+            'password' => $validated['name'],
+            'must_change_password' => true,
+        ]);
 
         AuditHelper::log(
             'Create',
@@ -34,7 +37,7 @@ class UserAdminController extends Controller
             'Created staff account: ' . $user->name . ' (' . $user->roleLabel() . ')'
         );
 
-        return back()->with('success', 'Staff account created successfully.');
+        return back()->with('success', 'Staff account created. Initial password is the same as their name — they will be asked to set a new password on first login.');
     }
 
     public function edit(User $user)
@@ -49,6 +52,7 @@ class UserAdminController extends Controller
             'email' => ['required', 'email', 'max:150', Rule::unique('users', 'email')->ignore($user->id)],
             'password' => 'nullable|string|min:8',
             'role' => 'required|in:' . implode(',', array_keys(User::ROLES)),
+            'reset_password' => 'nullable|boolean',
         ]);
 
         $user->name = $validated['name'];
@@ -57,6 +61,10 @@ class UserAdminController extends Controller
 
         if (!empty($validated['password'])) {
             $user->password = $validated['password'];
+            $user->must_change_password = false;
+        } elseif ($request->boolean('reset_password')) {
+            $user->password = $user->name;
+            $user->must_change_password = true;
         }
 
         $user->save();

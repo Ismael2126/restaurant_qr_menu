@@ -1,8 +1,7 @@
 /* =========================================================
-   RESTAURANT QR MENU - ADMIN STAFF ACCOUNTS CSS
-   File: public/css/admin-users.css
-   Pages: resources/views/admin/users/index.blade.php
-          resources/views/admin/users/edit.blade.php
+   RESTAURANT QR MENU - ADMIN REPORTS CSS
+   File: public/css/admin-reports.css
+   Pages: resources/views/admin/reports/index.blade.php
    ========================================================= */
 
 /* =========================
@@ -34,7 +33,7 @@ body {
    ========================= */
 
 .header {
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    background: linear-gradient(135deg, #059669, #0d9488);
     border-radius: 24px;
     padding: 24px;
     margin-bottom: 24px;
@@ -69,29 +68,7 @@ body {
 }
 
 /* =========================
-   4. ALERTS
-   ========================= */
-
-.alert {
-    background: rgba(34, 197, 94, 0.14);
-    border: 1px solid rgba(34, 197, 94, 0.35);
-    color: #bbf7d0;
-    padding: 12px 14px;
-    border-radius: 14px;
-    margin-bottom: 16px;
-}
-
-.error {
-    background: rgba(239, 68, 68, 0.14);
-    border: 1px solid rgba(239, 68, 68, 0.35);
-    color: #fecaca;
-    padding: 12px 14px;
-    border-radius: 14px;
-    margin-bottom: 16px;
-}
-
-/* =========================
-   5. CARDS
+   4. CARDS
    ========================= */
 
 .card {
@@ -109,11 +86,24 @@ body {
 }
 
 .section-title {
-    color: #fbbf24;
+    color: #6ee7b7;
+}
+
+.card-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.card-header-row h2 {
+    margin: 0;
 }
 
 /* =========================
-   6. FORMS
+   5. FILTERS
    ========================= */
 
 label {
@@ -123,8 +113,7 @@ label {
     margin-bottom: 6px;
 }
 
-input,
-select {
+input {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: #0b1220;
@@ -134,42 +123,33 @@ select {
     outline: none;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+.filter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
     align-items: end;
+    margin-bottom: 14px;
 }
 
-.form-actions {
+.filter-form > div {
+    min-width: 160px;
+}
+
+.preset-links {
     display: flex;
-}
-
-.form-check {
-    grid-column: 1 / -1;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
     gap: 8px;
-    color: #cbd5e1;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.checkbox-label input {
-    width: auto;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
 }
 
 .note {
     color: #94a3b8;
     font-size: 13px;
-    margin: -6px 0 14px;
+    margin: 0;
 }
 
 /* =========================
-   7. BUTTONS
+   6. BUTTONS
    ========================= */
 
 button,
@@ -189,13 +169,52 @@ button,
     background: #334155;
 }
 
-.btn-danger {
-    background: #dc2626;
-}
-
 .btn-small {
     padding: 8px 10px;
     font-size: 12px;
+}
+
+/* =========================
+   7. SUMMARY STATS
+   ========================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.summary-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.stat-card {
+    background: #0b1220;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.stat-value.amount-due {
+    color: #fca5a5;
+}
+
+.stat-value.amount-credit {
+    color: #86efac;
 }
 
 /* =========================
@@ -225,57 +244,26 @@ th {
     font-size: 13px;
 }
 
-/* =========================
-   9. BADGES
-   ========================= */
-
-.badge {
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 12px;
+tfoot td {
     font-weight: 700;
-}
-
-.badge-admin {
-    background: rgba(99, 102, 241, 0.18);
-    color: #c7d2fe;
-}
-
-.badge-kitchen {
-    background: rgba(249, 115, 22, 0.18);
-    color: #fdba74;
-}
-
-.badge-cashier {
-    background: rgba(20, 184, 166, 0.18);
-    color: #5eead4;
-}
-
-.badge-you {
-    background: rgba(34, 197, 94, 0.15);
-    color: #86efac;
-    margin-left: 6px;
+    border-bottom: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.12);
+    color: #6ee7b7;
 }
 
 /* =========================
-   10. ACTIONS
+   9. RESPONSIVE
    ========================= */
 
-.actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-}
+@media (max-width: 1100px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-.actions form {
-    margin: 0;
+    .summary-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
-
-/* =========================
-   11. RESPONSIVE
-   ========================= */
 
 @media (max-width: 900px) {
     .page {
@@ -290,8 +278,11 @@ th {
     .header h1 {
         font-size: 24px;
     }
+}
 
-    .form-row {
+@media (max-width: 600px) {
+    .summary-grid,
+    .summary-grid-3 {
         grid-template-columns: 1fr;
     }
 }

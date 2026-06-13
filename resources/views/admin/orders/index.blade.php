@@ -13,19 +13,12 @@
 <div class="page">
     <div class="header">
         <div>
-            <h1>Kitchen Orders</h1>
+            <h1>Orders</h1>
             <p>Live order dashboard &mdash; refreshes automatically.</p>
         </div>
 
         <div class="header-actions">
-            <a href="{{ route('admin.menu.index') }}" class="btn btn-secondary">Menu Admin</a>
-            <a href="{{ route('admin.audit.index') }}" class="btn btn-secondary">Audit Logs</a>
-            <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Staff</a>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
+            @include('admin.partials.nav', ['current' => 'orders'])
         </div>
     </div>
 
