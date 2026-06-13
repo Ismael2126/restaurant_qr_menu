@@ -1,0 +1,182 @@
+/* =========================================================
+   RESTAURANT QR MENU - ADMIN AUDIT LOG PAGE CSS
+   File: public/css/admin-audit.css
+   Page: resources/views/admin/audit/index.blade.php
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.header {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 0;
+    opacity: 0.92;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.header-actions form {
+    margin: 0;
+}
+
+.card {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.btn,
+button {
+    border: 0;
+    padding: 11px 14px;
+    border-radius: 14px;
+    background: #f97316;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background: #334155;
+}
+
+.btn-danger {
+    background: #dc2626;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: 1fr 180px 180px auto auto;
+    gap: 10px;
+}
+
+input,
+select {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0b1220;
+    color: #e5e7eb;
+    padding: 12px;
+    border-radius: 14px;
+    outline: none;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    vertical-align: top;
+}
+
+th {
+    color: #93c5fd;
+    font-size: 13px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.18);
+    color: #bfdbfe;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.pagination-wrap {
+    margin-top: 16px;
+    color: #e5e7eb;
+}
+
+.pagination-wrap nav {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding: 14px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .filter-form {
+        grid-template-columns: 1fr;
+    }
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.header-actions form {
+    margin: 0;
+}
+.btn-blue {
+    background: #2563eb;
+}

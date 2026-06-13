@@ -1,0 +1,185 @@
+/* =========================================================
+   RESTAURANT QR MENU - EDIT MENU ITEM PAGE CSS
+   File: public/css/edit-menu-item.css
+   Page: resources/views/admin/menu/edit-item.blade.php
+   ========================================================= */
+
+/* =========================
+   1. BASE RESET
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+/* =========================
+   2. PAGE LAYOUT
+   ========================= */
+
+.page {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+}
+
+/* =========================
+   3. HEADER
+   ========================= */
+
+.header {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 0;
+    opacity: 0.92;
+}
+
+/* =========================
+   4. CARD
+   ========================= */
+
+.card {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.card h2 {
+    margin: 0 0 16px;
+    font-size: 20px;
+}
+
+/* =========================
+   5. FORM
+   ========================= */
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0b1220;
+    color: #e5e7eb;
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* =========================
+   6. BUTTONS
+   ========================= */
+
+button,
+.btn {
+    border: 0;
+    padding: 11px 14px;
+    border-radius: 14px;
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background: #334155;
+}
+
+/* =========================
+   7. IMAGE PREVIEW
+   ========================= */
+
+.preview-img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    max-height: 360px;
+}
+
+.no-image {
+    height: 240px;
+    background: #1f2937;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    color: #94a3b8;
+}
+
+/* =========================
+   8. ERROR MESSAGE
+   ========================= */
+
+.error {
+    background: rgba(239, 68, 68, 0.14);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fecaca;
+    padding: 12px 14px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+/* =========================
+   9. RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page {
+        padding: 14px;
+    }
+
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+}
