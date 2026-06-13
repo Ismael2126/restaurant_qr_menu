@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
         Route::get('/', [OrderAdminController::class, 'index'])->name('index');
+        Route::get('/data', [OrderAdminController::class, 'data'])->name('data');
+        Route::get('/{order}/ticket', [OrderAdminController::class, 'ticket'])->name('ticket');
         Route::post('/{order}/status', [OrderAdminController::class, 'updateStatus'])->name('status');
     });
 

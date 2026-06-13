@@ -23,4 +23,36 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public static function statusLabel(string $status): string
+    {
+        return match ($status) {
+            'new' => 'New',
+            'preparing' => 'Preparing',
+            'ready' => 'Ready',
+            'completed' => 'Completed',
+            'cancelled' => 'Cancelled',
+            default => ucfirst($status),
+        };
+    }
+
+    public static function nextStatus(string $status): ?string
+    {
+        return match ($status) {
+            'new' => 'preparing',
+            'preparing' => 'ready',
+            'ready' => 'completed',
+            default => null,
+        };
+    }
+
+    public static function nextStatusLabel(string $status): ?string
+    {
+        return match ($status) {
+            'new' => 'Start Preparing',
+            'preparing' => 'Mark Ready',
+            'ready' => 'Mark Completed',
+            default => null,
+        };
+    }
 }
