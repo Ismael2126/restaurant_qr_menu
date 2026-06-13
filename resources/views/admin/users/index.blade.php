@@ -17,14 +17,7 @@
         </div>
 
         <div class="header-actions">
-            <a href="{{ route('admin.menu.index') }}" class="btn btn-secondary">Menu Admin</a>
-            <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">Orders</a>
-            <a href="{{ route('admin.audit.index') }}" class="btn btn-secondary">Audit Logs</a>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
+            @include('admin.partials.nav', ['current' => 'users'])
         </div>
     </div>
 
@@ -43,6 +36,8 @@
     <div class="card">
         <h2>Add Staff Account</h2>
 
+        <p class="note">The initial password is automatically set to the staff member's name. They will be asked to set their own password the first time they log in.</p>
+
         <form method="POST" action="{{ route('admin.users.store') }}" class="form-row">
             @csrf
 
@@ -54,11 +49,6 @@
             <div>
                 <label>Email</label>
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="name@example.com" required>
-            </div>
-
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Min. 8 characters" required>
             </div>
 
             <div>

@@ -17,14 +17,7 @@
         </div>
 
         <div class="header-actions">
-            <a href="{{ route('admin.menu.index') }}" class="btn btn-secondary">Menu Admin</a>
-            <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">Orders</a>
-            <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Staff</a>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
+            @include('admin.partials.nav', ['current' => 'audit'])
         </div>
     </div>
 
@@ -40,6 +33,8 @@
                 <option value="Table" {{ request('module') === 'Table' ? 'selected' : '' }}>Table</option>
                 <option value="Order" {{ request('module') === 'Order' ? 'selected' : '' }}>Order</option>
                 <option value="User" {{ request('module') === 'User' ? 'selected' : '' }}>User</option>
+                <option value="Purchase" {{ request('module') === 'Purchase' ? 'selected' : '' }}>Purchase</option>
+                <option value="Settings" {{ request('module') === 'Settings' ? 'selected' : '' }}>Settings</option>
             </select>
 
             <select name="action">

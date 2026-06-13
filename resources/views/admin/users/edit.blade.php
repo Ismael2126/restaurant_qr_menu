@@ -58,6 +58,13 @@
                 </select>
             </div>
 
+            <div class="form-check">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="reset_password" value="1">
+                    Reset password to staff name &amp; require change on next login
+                </label>
+            </div>
+
             <div class="form-actions">
                 <button type="submit">Save Changes</button>
             </div>

@@ -24,9 +24,18 @@ class AdminAuthController extends Controller
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
 
+            $user = Auth::user();
+
             AuditHelper::log('Login', 'Authentication', 'Admin logged in.');
 
-            return redirect()->route('admin.menu.index');
+            if ($user->must_change_password) {
+                return redirect()->route('password.change');
+            }
+
+            return redirect()->route(match ($user->role) {
+                'admin' => 'admin.menu.index',
+                default => 'admin.orders.index',
+            });
         }
 
         return back()
